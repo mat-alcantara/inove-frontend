@@ -1,42 +1,43 @@
 import './App.css';
 import { NavLink, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Support from './components/Support';
-import About from './components/About';
-import Labs from './components/Labs';
+import Contacts from './components/Contacts';
+import NewContacts from './components/NewContacts';
+import Sales from './components/Sales';
+import Graphic from './components/Graphic';
+import SendEmail from './components/SendEmail';
 import NotFound from './components/NotFound';
-import { Link } from 'react-router-dom';
 import MainHeader from './components/MainHeader';
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <ul>
+    <div className="App" style={containerStyle}>
+       {/* Navigation Bar */}
+      {/* Navigation Bar */}
+      <div className="navbar">
+        <div className="navbar-title">GoDigital</div>
+        <ul className="navbar-menu">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">Contatos</NavLink>
           </li>
+          <li>|</li>
           <li>
-            <NavLink to="/support">Support</NavLink>
+            <NavLink to="/sales">Vendas</NavLink>
           </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/labs">Labs</NavLink>
-          </li>
+          
+  
         </ul>
-      </nav>
-
+        <div className="navbar-username">ADMINISTRADOR</div> {/* Replace "John Doe" with the actual username */}
+      </div>
 
 
       <Routes>
         <Route path="/" element={<MainHeader/>} >
           {/* Default Route */}
-          <Route index element={<Home/>} />
-          <Route path="/support" element={<Support/>} />
-          <Route path="/about" element={<About/>} />
-          <Route path="/labs" element={<Labs/>} />
+          <Route index element={<Contacts/>} />
+          <Route path="/new-contact" element={<NewContacts/>} />
+          <Route path="/sales" element={<Sales/>} />
+          <Route path="/send-email" element={<SendEmail/>} />
+          <Route path="/graphic" element={<Graphic/>} />
           <Route path="*" element={<NotFound/>} />
         </Route>
       </Routes>
@@ -45,3 +46,9 @@ function App() {
 }
 
 export default App;
+
+
+const containerStyle = {
+  justifyContent: 'center',
+  margin: '0 20%', 
+};
